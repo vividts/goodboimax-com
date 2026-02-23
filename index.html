@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoodBoiMax.com — Premium Parts for Premium Bois</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- VIEW: Home -->
+  <div id="view-home" class="view active">
+    <div class="hero">
+      <h1 class="store-name">🐾 GoodBoiMax.com</h1>
+      <p class="tagline">Premium Parts for Premium Bois™</p>
+      <p class="sub-tagline">Ethically sourced. Sustainably fluffy. 100% Good.</p>
+      <button class="btn-primary" onclick="navigate(1)">Build Your Boi →</button>
+    </div>
+  </div>
+
+  <!-- VIEW: Wizard -->
+  <div id="view-wizard" class="view">
+    <div class="wizard-layout">
+      <div class="wizard-main">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="step-header">
+          <h2 id="step-title"></h2>
+          <p id="step-subtitle"></p>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+        <div class="wizard-nav">
+          <button class="btn-secondary" id="btn-back" onclick="navigateBack()">← Back</button>
+          <button class="btn-primary" id="btn-next" onclick="navigateNext()">Next →</button>
+        </div>
+      </div>
+      <div class="dog-sidebar">
+        <div class="dog-preview-label">Your Boi So Far</div>
+        <div class="dog-preview" id="dog-preview">
+          <!-- Inline SVG injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW: Cart -->
+  <div id="view-cart" class="view">
+    <div class="cart-container">
+      <h2>🛒 Your Boi Parts</h2>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-total" id="cart-total"></div>
+      <button class="btn-primary" onclick="navigate(8)">Complete Purchase 💳</button>
+      <button class="btn-secondary" onclick="navigate(6)">← Keep Shopping</button>
+    </div>
+  </div>
+
+  <!-- VIEW: Congrats -->
+  <div id="view-congrats" class="view">
+    <div class="confetti-container" id="confetti-container"></div>
+    <div class="congrats-content">
+      <div class="congrats-dog" id="congrats-dog"></div>
+      <h1 id="congrats-headline">🎉 Congrats!</h1>
+      <p id="congrats-message"></p>
+      <p class="congrats-fine-print">Your Good Boi will arrive within 3–5 business woofs.</p>
+      <button class="btn-primary" onclick="resetAndGoHome()">Adopt Another Boi 🐶</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
