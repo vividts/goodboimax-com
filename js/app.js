@@ -119,6 +119,14 @@ function selectProduct(productId) {
   if (!product) return;
   state.selections[product.category] = productId;
   renderWizardStep(state.step);
+  const preview = document.getElementById('dog-preview');
+  if (preview) {
+    preview.classList.remove('just-updated');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => preview.classList.add('just-updated'));
+    });
+    setTimeout(() => preview.classList.remove('just-updated'), 400);
+  }
 }
 
 // === DOG PREVIEW ===
