@@ -67,6 +67,137 @@
     </div>
   </div>
 
+  <!-- INLINE SVG TEMPLATE (hidden, for use by JS) -->
+  <template id="dog-svg-template"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 320" id="good-boi-svg">
+  <defs>
+    <style>
+      .dog-layer { display: none; }
+      .dog-layer.visible { display: block; }
+      .fur { fill: var(--fur-color, #D4A028); }
+      .outline { stroke: #1a1a1a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- BASE: Body (always visible) -->
+  <g id="body-base">
+    <!-- Body -->
+    <ellipse cx="150" cy="200" rx="75" ry="65" class="fur outline"/>
+    <!-- Head -->
+    <circle cx="150" cy="115" r="55" class="fur outline"/>
+    <!-- Snout -->
+    <ellipse cx="150" cy="135" rx="25" ry="18" fill="#c8914a" class="outline"/>
+    <!-- Nose -->
+    <ellipse cx="150" cy="125" rx="10" ry="7" fill="#1a1a1a"/>
+    <!-- Mouth -->
+    <path d="M138 138 Q150 148 162 138" fill="none" class="outline"/>
+  </g>
+
+  <!-- EARS -->
+  <g id="ears-floppy" class="dog-layer">
+    <ellipse cx="100" cy="100" rx="20" ry="35" class="fur outline" transform="rotate(-15 100 100)"/>
+    <ellipse cx="200" cy="100" rx="20" ry="35" class="fur outline" transform="rotate(15 200 100)"/>
+  </g>
+  <g id="ears-radar" class="dog-layer">
+    <polygon points="95,75 80,30 110,75" class="fur outline"/>
+    <polygon points="205,75 190,30 220,75" class="fur outline"/>
+  </g>
+  <g id="ears-satellite" class="dog-layer">
+    <ellipse cx="95" cy="60" rx="22" ry="28" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <line x1="95" y1="75" x2="105" y2="90" stroke="#1a1a1a" stroke-width="3"/>
+    <ellipse cx="205" cy="60" rx="22" ry="28" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+    <line x1="205" y1="75" x2="195" y2="90" stroke="#1a1a1a" stroke-width="3"/>
+  </g>
+
+  <!-- EYES -->
+  <g id="eyes-puppy" class="dog-layer">
+    <circle cx="130" cy="108" r="12" fill="white" class="outline"/>
+    <circle cx="170" cy="108" r="12" fill="white" class="outline"/>
+    <circle cx="130" cy="110" r="8" fill="#3d1c02"/>
+    <circle cx="170" cy="110" r="8" fill="#3d1c02"/>
+    <circle cx="133" cy="107" r="3" fill="white"/>
+    <circle cx="173" cy="107" r="3" fill="white"/>
+  </g>
+  <g id="eyes-human" class="dog-layer">
+    <ellipse cx="130" cy="108" rx="14" ry="10" fill="white" class="outline"/>
+    <ellipse cx="170" cy="108" rx="14" ry="10" fill="white" class="outline"/>
+    <circle cx="130" cy="108" r="6" fill="#3d6b8c"/>
+    <circle cx="170" cy="108" r="6" fill="#3d6b8c"/>
+    <circle cx="130" cy="108" r="3" fill="#1a1a1a"/>
+    <circle cx="170" cy="108" r="3" fill="#1a1a1a"/>
+    <!-- eyebrows -->
+    <path d="M120,96 Q130,90 140,96" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    <path d="M160,96 Q170,90 180,96" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+  </g>
+  <g id="eyes-anime" class="dog-layer">
+    <ellipse cx="130" cy="108" rx="15" ry="18" fill="white" class="outline"/>
+    <ellipse cx="170" cy="108" rx="15" ry="18" fill="white" class="outline"/>
+    <ellipse cx="130" cy="110" rx="10" ry="13" fill="#6a0dad"/>
+    <ellipse cx="170" cy="110" rx="10" ry="13" fill="#6a0dad"/>
+    <ellipse cx="130" cy="109" rx="5" ry="7" fill="#1a1a1a"/>
+    <ellipse cx="170" cy="109" rx="5" ry="7" fill="#1a1a1a"/>
+    <circle cx="124" cy="103" r="4" fill="white"/>
+    <circle cx="164" cy="103" r="4" fill="white"/>
+    <!-- sparkle -->
+    <text x="88" y="90" font-size="14">✨</text>
+    <text x="188" y="90" font-size="14">✨</text>
+  </g>
+
+  <!-- TOOFS -->
+  <g id="toofs-none" class="dog-layer">
+    <!-- just a smile, no teeth -->
+  </g>
+  <g id="toofs-buck" class="dog-layer">
+    <rect x="143" y="140" width="9" height="12" rx="2" fill="white" class="outline"/>
+    <rect x="153" y="140" width="9" height="12" rx="2" fill="white" class="outline"/>
+  </g>
+  <g id="toofs-vampire" class="dog-layer">
+    <polygon points="133,140 138,155 143,140" fill="white" class="outline"/>
+    <polygon points="157,140 162,155 167,140" fill="white" class="outline"/>
+    <rect x="143" y="140" width="14" height="9" rx="1" fill="white" class="outline"/>
+  </g>
+
+  <!-- TAIL -->
+  <g id="tail-bushy" class="dog-layer">
+    <ellipse cx="235" cy="175" rx="28" ry="45" class="fur outline" transform="rotate(30 235 175)"/>
+    <ellipse cx="248" cy="155" rx="18" ry="30" fill="#e8b84b" class="outline" transform="rotate(25 248 155)"/>
+  </g>
+  <g id="tail-stub" class="dog-layer">
+    <ellipse cx="225" cy="195" rx="12" ry="16" class="fur outline" transform="rotate(20 225 195)"/>
+  </g>
+  <g id="tail-wag" class="dog-layer">
+    <path d="M220,190 Q250,160 270,140 Q285,125 275,110" fill="none" class="outline" stroke-width="14" stroke-linecap="round"/>
+    <path d="M220,190 Q250,160 270,140 Q285,125 275,110" fill="none" stroke="#e8b84b" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- LEGS / FUR STICK -->
+  <g id="legs-outstretched" class="dog-layer">
+    <!-- Front legs -->
+    <rect x="105" y="240" width="25" height="55" rx="12" class="fur outline"/>
+    <rect x="168" y="240" width="25" height="55" rx="12" class="fur outline"/>
+    <!-- Back outstretched leg -->
+    <rect x="60" y="230" width="22" height="50" rx="10" class="fur outline" transform="rotate(-20 60 230)"/>
+    <rect x="210" y="230" width="22" height="50" rx="10" class="fur outline" transform="rotate(20 210 230)"/>
+  </g>
+  <g id="legs-zoomies" class="dog-layer">
+    <!-- front legs forward -->
+    <rect x="75" y="230" width="22" height="50" rx="10" class="fur outline" transform="rotate(-40 75 230)"/>
+    <rect x="120" y="248" width="22" height="50" rx="10" class="fur outline" transform="rotate(-25 120 248)"/>
+    <!-- back legs back -->
+    <rect x="155" y="248" width="22" height="50" rx="10" class="fur outline" transform="rotate(25 155 248)"/>
+    <rect x="200" y="230" width="22" height="50" rx="10" class="fur outline" transform="rotate(40 200 230)"/>
+    <!-- motion lines -->
+    <line x1="50" y1="190" x2="20" y2="190" stroke="#aaa" stroke-width="3" stroke-dasharray="5,3"/>
+    <line x1="50" y1="205" x2="15" y2="205" stroke="#aaa" stroke-width="3" stroke-dasharray="5,3"/>
+    <line x1="50" y1="220" x2="20" y2="220" stroke="#aaa" stroke-width="3" stroke-dasharray="5,3"/>
+  </g>
+  <g id="legs-derp" class="dog-layer">
+    <!-- loaf — stubby legs tucked -->
+    <ellipse cx="118" cy="268" rx="18" ry="12" class="fur outline"/>
+    <ellipse cx="182" cy="268" rx="18" ry="12" class="fur outline"/>
+  </g>
+
+</svg></template>
+
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>

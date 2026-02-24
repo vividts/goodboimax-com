@@ -12,10 +12,10 @@ const CATEGORY_ORDER = ['ears', 'tail', 'eyes', 'toofs', 'legs', 'coat'];
 // === SVG CACHE ===
 let dogSVGContent = null;
 
-async function loadDogSVG() {
+function loadDogSVG() {
   if (dogSVGContent) return dogSVGContent;
-  const res = await fetch('assets/dog.svg');
-  dogSVGContent = await res.text();
+  const template = document.getElementById('dog-svg-template');
+  dogSVGContent = template.innerHTML;
   return dogSVGContent;
 }
 
@@ -130,11 +130,11 @@ function selectProduct(productId) {
 }
 
 // === DOG PREVIEW ===
-async function renderDogPreview(containerId) {
+function renderDogPreview(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const svgContent = await loadDogSVG();
+  const svgContent = loadDogSVG();
   container.innerHTML = svgContent;
 
   updateDogLayers(container);
