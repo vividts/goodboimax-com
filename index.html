@@ -74,6 +74,7 @@
       .dog-layer { display: none; }
       .dog-layer.visible { display: block; }
       .fur { fill: var(--fur-color, #D4A028); }
+      .spots { fill: #3b2a1a; opacity: 0.65; }
       .outline { stroke: #1a1a1a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
     </style>
   </defs>
@@ -90,6 +91,18 @@
     <ellipse cx="150" cy="125" rx="10" ry="7" fill="#1a1a1a"/>
     <!-- Mouth -->
     <path d="M138 138 Q150 148 162 138" fill="none" class="outline"/>
+  </g>
+
+  <!-- COAT: Spotty overlay -->
+  <g id="coat-spotty" class="dog-layer">
+    <!-- Body spots -->
+    <ellipse cx="120" cy="210" rx="14" ry="10" class="spots"/>
+    <ellipse cx="170" cy="215" rx="18" ry="12" class="spots"/>
+    <ellipse cx="150" cy="240" rx="10" ry="7" class="spots"/>
+    <ellipse cx="195" cy="185" rx="12" ry="9" class="spots"/>
+    <!-- Head spots -->
+    <ellipse cx="125" cy="110" rx="9" ry="7" class="spots"/>
+    <ellipse cx="175" cy="105" rx="11" ry="8" class="spots"/>
   </g>
 
   <!-- EARS -->
