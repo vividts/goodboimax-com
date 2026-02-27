@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /bois/{boiId} {
+      // Anyone can read named bois (for the home page carousel)
+      allow read: if true;
+
+      // No direct client writes — all writes go through the Admin SDK API route
+      allow write: if false;
+    }
+  }
+}
