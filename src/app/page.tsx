@@ -30,7 +30,7 @@ export default async function HomePage() {
   const bois = await getRecentBois()
 
   return (
-    <main>
+    <main className="home-page-layout">
       <div id="view-home" className="view active">
         <div className="hero">
           <h1 className="store-name">🐾 GoodBoiMax.com</h1>

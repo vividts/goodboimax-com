@@ -22,6 +22,9 @@ export default function WizardView({ step, selections, onSelect, onNext, onBack 
     <div id="view-wizard" className="view active">
       <div className="wizard-layout">
         <div className="wizard-main">
+          <div className="dog-preview-mobile">
+            <DogSvg selections={selections} />
+          </div>
           <div className="progress-bar">
             {CATEGORY_ORDER.map((cat, i) => {
               const num = i + 1

@@ -27,7 +27,7 @@ export default function Carousel({ bois }: CarouselProps) {
 
   return (
     <section className="carousel-section">
-      <h2 className="carousel-title">🐾 Recently Named Bois</h2>
+      <h2 className="carousel-title">🐾 Recently Adopted Bois</h2>
       <div className="carousel-wrapper">
         <button className="carousel-btn carousel-btn-prev" onClick={() => scroll('prev')} aria-label="Previous">‹</button>
         <div className="carousel-track" ref={trackRef}>

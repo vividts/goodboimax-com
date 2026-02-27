@@ -929,3 +929,67 @@ body {
     display: none;
   }
 }
+
+/* === HOME PAGE ABOVE-FOLD LAYOUT === */
+.home-page-layout {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+/* Override .view.active min-height: 100vh inside home layout */
+/* Hero fills the top portion and centers its content vertically */
+.home-page-layout #view-home {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Carousel anchored to bottom, fixed height */
+.home-page-layout .carousel-section {
+  flex: 0 0 auto;
+  overflow: hidden;
+  padding: 0 40px 20px;
+}
+.home-page-layout .carousel-title {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+.home-page-layout .carousel-track {
+  overflow-y: hidden;
+}
+
+@media (max-width: 767px) {
+  .home-page-layout .carousel-section {
+    padding: 0 16px 12px;
+  }
+  .home-page-layout .carousel-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .home-page-layout .carousel-card {
+    flex: 0 0 150px;
+  }
+}
+
+/* === WIZARD MOBILE DOG PREVIEW === */
+.dog-preview-mobile {
+  display: none; /* hidden on desktop — sidebar handles it */
+}
+
+@media (max-width: 767px) {
+  .dog-preview-mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .dog-preview-mobile svg {
+    width: 72px;
+    height: auto;
+  }
+  /* Hide the full sidebar on mobile — inline preview above replaces it */
+  .dog-sidebar {
+    display: none;
+  }
+}
