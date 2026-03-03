@@ -47,8 +47,13 @@ jobs:
           FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
         run: |
-          printf 'GCP_PROJECT_ID=%s\nGCP_CLIENT_EMAIL=%s\nGCP_PRIVATE_KEY=%s\n' \
-            "$FIREBASE_PROJECT_ID" "$FIREBASE_CLIENT_EMAIL" "$FIREBASE_PRIVATE_KEY" > .env
+          python3 -c "
+          import os
+          with open('.env', 'w') as f:
+              f.write('GCP_PROJECT_ID=' + os.environ['FIREBASE_PROJECT_ID'] + '\n')
+              f.write('GCP_CLIENT_EMAIL=' + os.environ['FIREBASE_CLIENT_EMAIL'] + '\n')
+              f.write('GCP_PRIVATE_KEY=\"' + os.environ['FIREBASE_PRIVATE_KEY'].replace('\"', '\\\\\"') + '\"\n')
+          "
 
       - name: Enable Firebase Web Frameworks experiment
         env:
