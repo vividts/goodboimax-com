@@ -41,6 +41,15 @@ jobs:
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
         run: npm run build
 
+      - name: Write runtime environment variables
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+        run: |
+          printf 'FIREBASE_PROJECT_ID=%s\nFIREBASE_CLIENT_EMAIL=%s\nFIREBASE_PRIVATE_KEY=%s\n' \
+            "$FIREBASE_PROJECT_ID" "$FIREBASE_CLIENT_EMAIL" "$FIREBASE_PRIVATE_KEY" > .env
+
       - name: Enable Firebase Web Frameworks experiment
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}

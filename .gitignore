@@ -3,6 +3,7 @@ Thumbs.db
 *.log
 node_modules/
 .worktrees/
+.env
 .env.local
 .env*.local
 .next/
