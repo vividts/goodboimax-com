@@ -42,11 +42,17 @@ export async function POST(request: Request) {
   }
 
   // Write to Firestore
-  const docRef = await adminDb.collection('bois').add({
-    name: name.trim(),
-    selections,
-    createdAt: new Date(),
-  })
+  let docRef
+  try {
+    docRef = await adminDb.collection('bois').add({
+      name: name.trim(),
+      selections,
+      createdAt: new Date(),
+    })
+  } catch (err) {
+    console.error('[POST /api/bois] Firestore write failed:', err)
+    return NextResponse.json({ error: 'Failed to save boi' }, { status: 500 })
+  }
 
   return NextResponse.json({ id: docRef.id, name: name.trim() }, { status: 201 })
 }
