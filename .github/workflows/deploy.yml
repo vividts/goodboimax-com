@@ -19,6 +19,9 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Upgrade npm to match local lockfile version
+        run: npm install -g npm@11
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
