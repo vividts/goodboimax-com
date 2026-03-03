@@ -6,8 +6,8 @@ import type { Selections } from '@/lib/data'
 
 async function getRecentBois(): Promise<NamedBoi[]> {
   try {
-    const { adminDb } = await import('@/lib/firebase-admin')
-    const snapshot = await adminDb
+    const { getAdminDb } = await import('@/lib/firebase-admin')
+    const snapshot = await getAdminDb()
       .collection('bois')
       .orderBy('createdAt', 'desc')
       .limit(10)

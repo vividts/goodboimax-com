@@ -1,6 +1,6 @@
 // src/app/api/bois/route.ts
 import { NextResponse } from 'next/server'
-import { adminDb } from '@/lib/firebase-admin'
+import { getAdminDb } from '@/lib/firebase-admin'
 import { validateBoiName } from '@/lib/validation'
 import type { Selections } from '@/lib/data'
 import { CATEGORY_ORDER, PRODUCTS } from '@/lib/data'
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   // Write to Firestore
   let docRef
   try {
-    docRef = await adminDb.collection('bois').add({
+    docRef = await getAdminDb().collection('bois').add({
       name: name.trim(),
       selections,
       createdAt: new Date(),
