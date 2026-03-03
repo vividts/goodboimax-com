@@ -24,8 +24,13 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "moduleNameMapper": { "^@/(.*)$": "<rootDir>/src/$1" },
-    "testPathIgnorePatterns": ["/node_modules/", "/e2e/"]
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/e2e/"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -36,6 +41,7 @@
     "@types/node": "^25.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "firebase-tools": "^15.8.0",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
